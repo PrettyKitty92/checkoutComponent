@@ -1,4 +1,4 @@
-package patrycja.szelc.checkout.component.service;
+package patrycja.szelc.basket.component.service;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,21 +8,21 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Service
-public class CheckoutService implements CheckoutComponentInterface {
+public class BasketComponentService implements BasketComponentInterface {
 
     private PriceCalculator priceCalculator;
-    private Map<String, Counter> items = new HashMap<String, Counter>();
+    private Map<String, ItemCounter> items = new HashMap<String, ItemCounter>();
     private int totalPrice = 0;
 
     @Autowired
-    public CheckoutService(PriceCalculator priceCalculator) {
+    public BasketComponentService(PriceCalculator priceCalculator) {
         this.priceCalculator = priceCalculator;
     }
 
     @Override
     public void addItem(String name) {
 
-        items.putIfAbsent(name, new Counter());
+        items.putIfAbsent(name, new ItemCounter());
         items.get(name).increase();
 
         totalPrice = priceCalculator.calculateTotalPrice(items);
@@ -39,7 +39,7 @@ public class CheckoutService implements CheckoutComponentInterface {
     }
 
     @Override
-    public void deleteAll() {
+    public void clear() {
         items.clear();
         totalPrice = 0;
     }

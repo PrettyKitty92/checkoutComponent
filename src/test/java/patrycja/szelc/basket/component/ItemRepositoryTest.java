@@ -1,4 +1,4 @@
-package patrycja.szelc.checkout.component;
+package patrycja.szelc.basket.component;
 
 
 import org.junit.Test;
@@ -7,9 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.context.junit4.SpringRunner;
-import patrycja.szelc.checkout.component.model.Item;
-import patrycja.szelc.checkout.component.model.SpecialPrice;
-import patrycja.szelc.checkout.component.repository.ItemRepository;
+import patrycja.szelc.basket.component.model.Item;
+import patrycja.szelc.basket.component.model.SpecialPrice;
+import patrycja.szelc.basket.component.repository.ItemRepository;
 
 import java.util.List;
 
@@ -31,8 +31,8 @@ public class ItemRepositoryTest {
         // given
         Item A = new Item("A", 40, new SpecialPrice(3, 70));
         Item B = new Item("B", 10, new SpecialPrice(2, 15));
-        Item C = new Item("C", 30, new SpecialPrice());
-        Item D = new Item("D", 25, new SpecialPrice());
+        Item C = new Item("C", 30, null);
+        Item D = new Item("D", 25, null);
         entityManager.persist(A);
         entityManager.persist(B);
         entityManager.persist(C);

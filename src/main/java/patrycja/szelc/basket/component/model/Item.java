@@ -1,4 +1,4 @@
-package patrycja.szelc.checkout.component.model;
+package patrycja.szelc.basket.component.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -18,14 +18,12 @@ public class Item implements Serializable {
     @Column(nullable = false)
     private int price;
 
-    @Column(name = "special_price", nullable = true)
-    @Embedded
-    @Basic(optional = true)
+    @OneToOne(cascade = {CascadeType.ALL})
+    @JoinColumn(name = "special_price")
     private SpecialPrice specialPrice;
 
-    protected Item() {
+    public Item() {
     }
-
 
     public Item(String name, int price, SpecialPrice specialPrice) {
         this.name = name;
@@ -42,16 +40,6 @@ public class Item implements Serializable {
     }
 
     public SpecialPrice getSpecialPrice() {
-        return specialPrice.getQuantity() != 0 ? specialPrice : null;
-    }
-
-    @Override
-    public String toString() {
-        return "Item{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", price=" + price +
-                ", specialPrice=" + specialPrice +
-                '}';
+        return specialPrice;
     }
 }

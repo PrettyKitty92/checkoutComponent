@@ -1,11 +1,16 @@
-package patrycja.szelc.checkout.component.model;
+package patrycja.szelc.basket.component.model;
 
-import javax.persistence.Embeddable;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import java.io.Serializable;
 
-@Embeddable
+@Entity
 public class SpecialPrice implements Serializable {
 
+    @Id
+    @GeneratedValue
+    private Long id;
 
     private int quantity;
     private int value;

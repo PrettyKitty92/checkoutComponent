@@ -1,4 +1,4 @@
-package patrycja.szelc.checkout.component;
+package patrycja.szelc.basket.component;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

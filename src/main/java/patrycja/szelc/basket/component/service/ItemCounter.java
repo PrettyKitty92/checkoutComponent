@@ -1,7 +1,7 @@
-package patrycja.szelc.checkout.component.service;
+package patrycja.szelc.basket.component.service;
 
 
-public class Counter {
+public class ItemCounter {
 
     private int count = 0;
 

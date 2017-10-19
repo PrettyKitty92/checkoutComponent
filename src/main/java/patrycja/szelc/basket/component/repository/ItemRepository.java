@@ -1,8 +1,8 @@
-package patrycja.szelc.checkout.component.repository;
+package patrycja.szelc.basket.component.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import patrycja.szelc.checkout.component.model.Item;
+import patrycja.szelc.basket.component.model.Item;
 
 import java.util.List;
 
